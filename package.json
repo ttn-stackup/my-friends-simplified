@@ -1,0 +1,16 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Simple todo app",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "npm install -g bower; bower install;node server/app.js"
+  },
+  "author": "NUS ISS StackUp",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "sequelize": "^3.24.3"
+  }
+}

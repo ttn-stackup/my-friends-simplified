@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+   "friendName" : "Alex",
+    "contactNo" : "+91 9899232334",
+    "email" : "Alex@gmail.com",
+    "gender" :"male",
+    "imageUrl":"http://i.imgur.com/1o1zEDM.png",
+    "saved" : 1
+
+  },
+  {
+    "id": 2,
+    "friendName" : "Lisa",
+    "contactNo" : "+91 9899232334",
+    "email" : "Lisa@gmail.com",
+    "gender" :"female",
+    "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/0/07/Avatar_girl_face.png",
+    "saved" : 1
+  },
+  {
+    "id": 3,
+    "friendName" : "Daniel",
+    "contactNo" : "+91 9899232334",
+    "email" : "Daniel@gmail.com",
+    "gender" :"male",
+    "imageUrl":"http://i.imgur.com/1o1zEDM.png",
+    "saved" : 1
+  },
+  {
+    "id": 4,
+    "friendName" : "Natasha",
+    "contactNo" : "+91 9899232334",
+    "email" : "Natasha@gmail.com",
+    "gender" :"female",
+    "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/0/07/Avatar_girl_face.png",
+    "saved" : 1
+  },
+  {
+    "id": 5,
+    "friendName" : "Vishnu",
+    "contactNo" : "+91 9899232334",
+    "email" : "Vishnu@gmail.com",
+    "gender" :"male",
+    "imageUrl":"http://i.imgur.com/1o1zEDM.png",
+    "saved" : 1
+
+  }
+
+]

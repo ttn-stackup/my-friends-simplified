@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" ng-app="friendsApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--BEGIN BOWER COMPONENTS CSS-->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css"/>
+    <!--END BOWER COMPONENTS CSS-->
+
+    <!--BEGIN CSS-->
+    <link rel="stylesheet" href="/app/css/app.css"/>
+    <!--END CSS-->
+
+
+</head>
+<body>
+
+<div class="container ng-hide" ng-controller="friendsCtrl as ctrl" ng-show="ctrl">
+    <div>
+        <div>
+            <form name="friendForm" style="padding-top: 23px;" ng-submit="ctrl.submit() && friendForm.$valid"
+                  novalidate>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" placeholder="Friends Name" name='friendName'
+                           ng-model="ctrl.friendObject.friendName"
+                           required/>
+                    </span>
+                </div>
+                <div class="col-xs-2">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address"
+                           ng-model="ctrl.friendObject.email"
+                           ng-required='true'
+                           ng-class="has-error"/>
+                      <span class="validation-error"
+                            ng-show="friendForm.email.$error.email">
+                           Valid Email is required
+                     </span>
+                </div>
+                <div class="col-xs-2">
+                    <input type="number" class="form-control" placeholder="Contact No"
+                           name="phone"
+                           ng-pattern="/([0-9\s\-]{7,})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/"
+                           ng-model="ctrl.friendObject.contactNo"
+                           ng-required="true"
+                           ng-class="has-error"/>
+                     <span class="validation-error"
+                           ng-show="(
+                           friendForm.phone.$error.pattern &&
+                           friendForm.phone.$dirty) ">
+                           phone number is not valid
+                         </span>
+                </div>
+                <div class="col-xs-3">Gender :
+                    <label class="radio-inline">
+                        <input type="radio" name="Gender" value="male" ng-model="ctrl.friendObject.gender" required>Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="Gender" value="female" ng-model="ctrl.friendObject.gender" required>Female
+                    </label>
+                </div>
+                <div class="col-xs-2">
+                    <button class="btn btn-primary" type="submit" ng-disabled="friendForm.$invalid">
+                        &nbsp;Add&nbsp;</button>
+                    <button class="btn btn-default" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <ul class="friends">
+        <li ng-repeat="friend in ctrl.friendsArray"
+            class="thumbnail friend-list-item">
+            <a class="thumb">
+                <img ng-src="{{friend.imageUrl}}" alt="{{friend.friendName}}"/>
+            </a>
+            <a ng-click="ctrl.showUserDetails(friend)">{{friend.friendName}}</a>
+
+            <div class="pull-right ">
+                <i class="fa fa-check fa-lg cursor-pointer"
+                   ng-click="ctrl.saveToDB(friend.id,friend.saved)"
+                   ng-style="!friend.saved ? {'color':'grey'}: {'color':'green'}"
+                   aria-hidden="true" style=" margin-left: 20px;"></i><i
+                    class="fa fa-trash fa-lg cursor-pointer" aria-hidden="true" style=" margin-left: 20px;color:red"
+                    ng-click="ctrl.delete(friend.id)"></i></div>
+        </li>
+    </ul>
+</div>
+</div>
+
+
+<!--BEGIN BOWER COMPONENTS JS-->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+
+<!--END BOWER COMPONENTS JS-->
+
+
+<!--BEGIN SOURCE JS-->
+<script src="/app/app.js"></script>
+<script src="/app/directives/app.directive.js"></script>
+<script src="/app/services/app.service.js"></script>
+<script src="/app/friends/friends.controller.js"></script>
+<script src="/app/modals/friends-detail.controller.js"></script>
+<!--END SOURCE JS-->
+</body>
+</html>
